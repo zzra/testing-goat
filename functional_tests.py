@@ -1,6 +1,9 @@
-import unittest
 from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.service import Service
+import time
+import unittest
 path = "/snap/bin/geckodriver"
 
 class NewVisitorTest(unittest.TestCase):
@@ -11,23 +14,36 @@ class NewVisitorTest(unittest.TestCase):
         self.browser.quit()
     
     def test_can_start_a_todo_list(self):
-        self.browser.get("http://127.0.0.1:8000")
         # Edith heard about a cool new online to-do app
-        # she goes ot check out its homepage
+        # she goes to check out its homepage
+        self.browser.get("http://127.0.0.1:8000")
 
+
+        # she notices the page title and head mention to-do lists
         self.assertIn("To-Do", self.browser.title)
+        header_text = self.browser.find_element(By.TAG_NAME, "h1").text
+        self.assertIn("To-Do", header_text)
 
         # she is invited to enter a to-do item straight away
-        self.fail("Finish the test!")
+        inputbox = self.browser.find_element(By.ID, "id_new_item")
+        self.assertEqual(inputbox.get_attribute("placeholder"), "Enter a to-do item")
 
         # she types "buy peacock feathers" into a text box
         # edith ties fishing lures for fun
+        inputbox.send_keys("Buy peacock feathers")
 
         # when she hits enter the page updates, and now the page lists
         # "1: Buy peacock feathers" as an item in a to-do list
+        inputbox.send_keys(Keys.ENTER)
+        time.sleep(1)
+
+        table = self.browser.find_element(By.ID, "id_list_table")
+        rows = table.find_elements(By.TAG_NAME, "tr")
+        self.assertTrue(any(row.text == "1: Buy peacock feathers" for row in rows))
 
         # there is still a textbox inviting her to add another item
         # she enters "User peacock feathers to make a fly" edith is methodical
+        self.fail("Finish the test!")
 
         # the page updates again, showing both items in the list
 

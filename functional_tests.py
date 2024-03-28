@@ -55,7 +55,7 @@ class NewVisitorTest(unittest.TestCase):
         table = self.browser.find_element(By.ID, "id_list_table")
         rows = table.find_elements(By.TAG_NAME, "tr")
         self.check_for_row_in_list_table("1: Buy peacock feathers")
-        self.check_for_row_in_list_table("2: Use peacocks feathers to make a fly")
+        self.check_for_row_in_list_table("2: Use peacock feathers to make a fly")
 
         # there is still a textbox inviting her to add another item
         # she enters "User peacock feathers to make a fly" edith is methodical

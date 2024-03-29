@@ -4,6 +4,9 @@
 
 Git Location - `https://github.com/hjwp/book-example`
 
+## POSITION
+7.4, iterating towards the new design
+
 ## TO DO
 * ~~don't save blank items for every request~~
 * ~~code smell: post test is too long?~~

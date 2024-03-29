@@ -7,7 +7,7 @@
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-Web dev sine qua nons
+8, prettifications
 
 ## TO DO
 * ~~don't save blank items for every request~~

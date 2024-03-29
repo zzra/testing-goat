@@ -62,14 +62,11 @@ class NewVisitorTest(LiveServerTestCase):
         inputbox.send_keys(Keys.ENTER)
 
         # the page updates again, now shows both items on her list
-        table = self.browser.find_element(By.ID, "id_list_table")
-        rows = table.find_elements(By.TAG_NAME, "tr")
         self.wait_for_row_in_list_table("1: Buy peacock feathers")
-        self.wait_for_row_in_list_table("2: Use peacock feathers to make a fly")
 
         # there is still a textbox inviting her to add another item
         # she enters "User peacock feathers to make a fly" edith is methodical
-        self.fail("Finish the test!")
+        self.wait_for_row_in_list_table("2: Use peacock feathers to make a fly")
 
         # the page updates again, showing both items in the list
 

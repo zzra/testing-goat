@@ -7,7 +7,7 @@
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-7.8, biting the bullet 
+Web dev sine qua nons
 
 ## TO DO
 * ~~don't save blank items for every request~~
@@ -20,4 +20,4 @@ Git Location - `https://github.com/hjwp/book-example`
 * ~~add a url for creating a new list via POST~~
 * ~~add urls for adding a new item to an existing list via POST~~
 * ~~support more than one list!~~
-* refactor away duplication in urls.py
+* ~~refactor away duplication in urls.py~~

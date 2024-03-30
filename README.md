@@ -7,7 +7,7 @@
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-8, prettifications
+9, deployment 1
 
 ## TO DO
 * ~~don't save blank items for every request~~

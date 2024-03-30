@@ -21,3 +21,6 @@ Git Location - `https://github.com/hjwp/book-example`
 * ~~add urls for adding a new item to an existing list via POST~~
 * ~~support more than one list!~~
 * ~~refactor away duplication in urls.py~~
+* review {% static %} template tag to get rid of hard coded urls
+* review client-side packaging ie npm and bower
+* review bootstrap and SASS

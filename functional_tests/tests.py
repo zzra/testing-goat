@@ -5,7 +5,7 @@ from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.firefox.service import Service
 from selenium.common.exceptions import WebDriverException
 import time
-import unittest
+import os
 
 MAX_WAIT = 5
 PATH = "/snap/bin/geckodriver"
@@ -13,6 +13,9 @@ PATH = "/snap/bin/geckodriver"
 class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox(service=Service(executable_path=PATH))
+        test_server = os.environ.get('TEST_SERVER')
+        if test_server:
+            self.live_server_url = 'http://' + test_server
 
     def tearDown(self):
         self.browser.quit()

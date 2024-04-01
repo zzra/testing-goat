@@ -13,7 +13,7 @@ docker build -t superlists . && docker run -p 8888:8888 \
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-10, production ready
+10.4, using env variables 
 
 ## TO DO
 * ~~don't save blank items for every request~~

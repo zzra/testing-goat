@@ -3,11 +3,17 @@
 2. Run unit tests `python manage.py test lists`
 3. Run server `python manage.py runserver`
 4. Make migrations `python manage.py makemigrations`
+5. Run docker 
+```
+docker build -t superlists . && docker run -p 8888:8888 \
+--mount type=bind,source=./src/db.sqlite3,target=/src/db.sqlite3 \
+-it superlists &
+```
 
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-9, deployment 1
+10, production ready
 
 ## TO DO
 * ~~don't save blank items for every request~~

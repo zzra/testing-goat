@@ -22,7 +22,7 @@ docker build -t superlists . && docker run -p 8888:8888 \
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-11, infra as code
+11, spinning up a server
 
 ## TO DO
 * ~~don't save blank items for every request~~

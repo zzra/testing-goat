@@ -3,12 +3,21 @@
 2. Run unit tests `python manage.py test lists`
 3. Run server `python manage.py runserver`
 4. Make migrations `python manage.py makemigrations`
-5. Run docker 
+5. Run docker for test
 ```
 docker build -t superlists . && docker run -p 8888:8888 \
 --mount type=bind,source=./src/db.sqlite3,target=/src/db.sqlite3 \
 -it superlists &
 ```
+6. Run docker for production
+```
+docker build -t superlists . && docker run -p 8888:8888 \
+--mount type=bind,source=./src/db.sqlite3,target=/src/db.sqlite3 \
+-e DJANGO_SECRET_KEY=sekrit \
+-e DJANGO_ALLOWED_HOSTS=localhost \
+-it superlists &
+```
+7. Remove all old docker images `docker system prune -f`
 
 Git Location - `https://github.com/hjwp/book-example`
 

@@ -1,5 +1,0 @@
-build:
-  docker:
-    web: dockerfile
-run:
-  web: gunicorn --bind :8888 superlists.wsgi:application

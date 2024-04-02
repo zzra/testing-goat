@@ -17,7 +17,15 @@ docker build -t superlists . && docker run -p 8888:8888 \
 -e DJANGO_ALLOWED_HOSTS=localhost \
 -it superlists &
 ```
-7. Remove all old docker images `docker system prune -f`
+7. Run docker and locally create db, is bad
+```
+docker build -t superlists . && docker run -p 8888:80 \
+--mount type=bind,source=./src/db.sqlite3,target=/src/db.sqlite3 \
+-e DJANGO_SECRET_KEY=sekrit \
+-e DJANGO_ALLOWED_HOSTS=localhost \
+-it superlists &
+```
+8. Remove all old docker images `docker system prune -f`
 
 Git Location - `https://github.com/hjwp/book-example`
 

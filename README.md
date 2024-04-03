@@ -11,25 +11,19 @@ docker build -t superlists . && docker run -p 8888:8888 \
 ```
 6. Run docker for production
 ```
-docker build -t superlists . && docker run -p 8888:8888 \
+docker build -t superlists . && docker run -p 8888:80 \
 --mount type=bind,source=./src/db.sqlite3,target=/src/db.sqlite3 \
 -e DJANGO_SECRET_KEY=sekrit \
 -e DJANGO_ALLOWED_HOSTS=localhost \
 -it superlists &
 ```
-7. Run docker and locally create db, is bad
-```
-docker build -t superlists . && docker run -p 8888:80 \
--e DJANGO_SECRET_KEY=sekrit \
--e DJANGO_ALLOWED_HOSTS=localhost \
--it superlists &
-```
-8. Remove all old docker images `docker system prune -f`
+7. Remove all old docker images `docker system prune -f`
+8. Run ansible playbook `ansible-playbook --user=peter -i 164.92.125.221, infra/ansible-provision.yaml -vv --ask-become-pass`
 
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-11, configuring for staging
+11, getting our image onto the server, and setting up dns
 
 ## TO DO
 * ~~don't save blank items for every request~~

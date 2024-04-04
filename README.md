@@ -24,7 +24,7 @@ docker build -t superlists . && docker run -p 8888:8888 \
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-13,  refactor hardcoded urls
+14, simple form 
 
 ## TO DO
 * ~~don't save blank items for every request~~
@@ -41,6 +41,6 @@ Git Location - `https://github.com/hjwp/book-example`
 * review {% static %} template tag to get rid of hard coded urls
 * review client-side packaging ie npm and bower
 * review bootstrap and SASS
-* remove hardcoded urls from views.py
+* ~~remove hardcoded urls from views.py~~
 * ~~remove hardcoded url from forms in list.html and home.html~~
 * remove dupliation of validation logic in views

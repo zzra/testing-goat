@@ -11,19 +11,20 @@ docker build -t superlists . && docker run -p 8888:8888 \
 ```
 6. Run docker for production
 ```
-docker build -t superlists . && docker run -p 8888:80 \
+docker build -t superlists . && docker run -p 8888:8888 \
 --mount type=bind,source=./src/db.sqlite3,target=/src/db.sqlite3 \
 -e DJANGO_SECRET_KEY=sekrit \
 -e DJANGO_ALLOWED_HOSTS=localhost \
 -it superlists &
 ```
 7. Remove all old docker images `docker system prune -f`
-8. Run ansible playbook `ansible-playbook --user=peter -i 164.92.125.221, infra/ansible-provision.yaml -vv --ask-become-pass`
+8. Run ansible playbook `ansible-playbook --user=peter -i ppetersaunderss.uk, infra/ansible-provision.yaml -vv --ask-become-pass`
+9. Logs for docker container `docker logs <<name>>`
 
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-11, getting our image onto the server, and setting up dns
+12, splitting tests
 
 ## TO DO
 * ~~don't save blank items for every request~~

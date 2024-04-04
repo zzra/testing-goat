@@ -24,7 +24,7 @@ docker build -t superlists . && docker run -p 8888:8888 \
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-12, splitting tests
+13, validationg the db
 
 ## TO DO
 * ~~don't save blank items for every request~~

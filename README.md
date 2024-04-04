@@ -24,7 +24,8 @@ docker build -t superlists . && docker run -p 8888:8888 \
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-13, surfacing the model validation errors in the view
+13,  refactor hardcoded urls
+* fix saves empty items, validations is failing somewhere
 
 ## TO DO
 * ~~don't save blank items for every request~~
@@ -43,3 +44,4 @@ Git Location - `https://github.com/hjwp/book-example`
 * review bootstrap and SASS
 * remove hardcoded urls from views.py
 * remove hardcoded url from forms in list.html and home.html
+* remove dupliation of validation logic in views

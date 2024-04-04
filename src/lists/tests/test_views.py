@@ -42,7 +42,7 @@ class ListViewTest(TestCase):
         correct_list = List.objects.create()
 
         self.client.post(
-            f"/lists/{correct_list.id}",
+            f"/lists/{correct_list.id}/",
             data={"item_text":"A new item for an existing list"},
         )
 
@@ -57,10 +57,21 @@ class ListViewTest(TestCase):
 
         response = self.client.post(
             f"/lists/{correct_list.id}/",
-            date={"item_text":"A new item for an existing list"},
+            data={"item_text":"A new item for an existing list"},
         )
 
         self.assertRedirects(response, f"/lists/{correct_list.id}/")
+
+    def test_validation_errors_end_up_on_lists_page(self):
+        list = List.objects.create()
+        response = self.client.post(
+            f"/lists/{list.id}/",
+            data={"item_text":""}
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "list.html")
+        expected_error = escape("You can't have an empty list item")
+        self.assertContains(response, expected_error)
 
 class NewListTest(TestCase):
     def test_can_save_a_POST_request(self):
@@ -74,12 +85,12 @@ class NewListTest(TestCase):
         new_list = List.objects.get()
         self.assertRedirects(response, f"/lists/{new_list.id}/")
 
-    def test_can_save_a_POST_request_to_an_existing_liist(self):
+    def test_can_save_a_POST_request_to_an_existing_list(self):
         other_list = List.objects.create()
         correct_list = List.objects.create()
 
         self.client.post(
-            f"/lists/{correct_list.id}/add_item",
+            f"/lists/{correct_list.id}/",
             data={"item_text":"A new item for an existing list"},
         )
 
@@ -93,7 +104,7 @@ class NewListTest(TestCase):
         correct_list = List.objects.create()
 
         response = self.client.post(
-            f"/lists/{correct_list.id}/add_item",
+            f"/lists/{correct_list.id}/",
             data={"item_text":"A new item fo ran existing list"}
         )
 

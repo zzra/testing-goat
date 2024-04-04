@@ -24,7 +24,7 @@ docker build -t superlists . && docker run -p 8888:8888 \
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-13, validationg the db
+13, surfacing the model validation errors in the view
 
 ## TO DO
 * ~~don't save blank items for every request~~
@@ -41,3 +41,4 @@ Git Location - `https://github.com/hjwp/book-example`
 * review {% static %} template tag to get rid of hard coded urls
 * review client-side packaging ie npm and bower
 * review bootstrap and SASS
+* remove hardcoded urls from views.py

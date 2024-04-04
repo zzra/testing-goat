@@ -25,7 +25,6 @@ Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
 13,  refactor hardcoded urls
-* fix saves empty items, validations is failing somewhere
 
 ## TO DO
 * ~~don't save blank items for every request~~

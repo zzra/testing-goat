@@ -42,3 +42,4 @@ Git Location - `https://github.com/hjwp/book-example`
 * review client-side packaging ie npm and bower
 * review bootstrap and SASS
 * remove hardcoded urls from views.py
+* remove hardcoded url from forms in list.html and home.html

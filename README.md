@@ -24,7 +24,7 @@ docker build -t superlists . && docker run -p 8888:8888 \
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-14, simple form 
+15, more advanced forms
 
 ## TO DO
 * ~~don't save blank items for every request~~
@@ -43,4 +43,4 @@ Git Location - `https://github.com/hjwp/book-example`
 * review bootstrap and SASS
 * ~~remove hardcoded urls from views.py~~
 * ~~remove hardcoded url from forms in list.html and home.html~~
-* remove dupliation of validation logic in views
+* ~~remove dupliation of validation logic in views~~

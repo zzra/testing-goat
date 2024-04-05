@@ -18,7 +18,7 @@ docker build -t superlists . && docker run -p 8888:8888 \
 -it superlists &
 ```
 7. Remove all old docker images `docker system prune -f`
-8. Run ansible playbook `ansible-playbook --user=peter -i ppetersaunderss.uk, infra/ansible-provision.yaml -vv --ask-become-pass`
+8. Run ansible playbook `ansible-playbook --user=<<USER>> -i <<SITE>>, infra/ansible-provision.yaml -vv --ask-become-pass`
 9. Logs for docker container `docker logs <<name>>`
 
 Git Location - `https://github.com/hjwp/book-example`

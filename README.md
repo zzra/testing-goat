@@ -20,11 +20,12 @@ docker build -t superlists . && docker run -p 8888:8888 \
 7. Remove all old docker images `docker system prune -f`
 8. Run ansible playbook `ansible-playbook --user=<<USER>> -i <<SITE>>, infra/ansible-provision.yaml -vv --ask-become-pass`
 9. Logs for docker container `docker logs <<name>>`
+10. Cleanup server `rm /tmp/superlists-img.tar; rm superlists.env; rm db.sqlite3; docker kill superlists; docker system prune -f; docker rmi superlists:latest`
 
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-17, deploying new code
+More advanced topics in testing
 
 ## TO DO
 * ~~don't save blank items for every request~~

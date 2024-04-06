@@ -1,6 +1,32 @@
 ---
-- hosts: all
+- name: Cleanup Images on Server
+  hosts: all
+  tasks:
+    - name: Start cleanup of docker images by getting names
+      community.docker.docker_host_info:
+        images: yes
+        containers: yes
+      register: docker_objects
 
+    - name: Remove all containers
+      community.docker.docker_container:
+        name: "{{ item.Id }}"
+        state: absent
+      loop: "{{ docker_objects.containers }}"
+      loop_control:
+        label: "{{ item.Id }}"
+
+    - name: Remove all images
+      community.docker.docker_image:
+        name: item.RepoTags | first
+        state: absent
+        force_absent: yes
+      loop: "{{ docker_objects.images }}"
+      loop_control:
+        label: "{{ item.RepoTags | first }}"
+
+- name: Build and Send Image to Server
+  hosts: all
   tasks:
     - name: "Install docker"
       ansible.builtin.apt:
@@ -17,6 +43,7 @@
         build:
           path: /home/peter/testing-goat
           platform: linux/amd64
+          nocache: true
         force_source: true
       delegate_to: 127.0.0.1
 

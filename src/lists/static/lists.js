@@ -1,5 +1,8 @@
-const initialize = () => {
-	$('input[name="text"]').on('keypress', () => {
-		$('.errorlist').hide();
+window.Superlists = {};
+window.Superlists.initialize = () => {
+	const hideErrors = () => $('.errorlist').hide();
+	$('input[name="text"]').on({
+		'keypress': hideErrors, 
+		'click': hideErrors
 	});
 };

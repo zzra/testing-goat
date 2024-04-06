@@ -54,7 +54,7 @@ class ItemValidationTest(FunctionalTest):
             )
         )
 
-    def test_error_messages_are_cleared_on_input(self):
+    def test_error_messages_are_cleared_on_keypress(self):
         # edith starts a list and causes a validation error
         self.browser.get(self.live_server_url)
         self.get_item_input_box().send_keys('Banter too thick')
@@ -69,6 +69,27 @@ class ItemValidationTest(FunctionalTest):
 
         # she starts typing in the inputbox to clear the error
         self.get_item_input_box().send_keys("a")
+
+        # she is pleased to see that the error message disappears
+        self.wait_for(lambda: self.assertFalse(
+            self.get_error_element().is_displayed()
+        ))
+
+    def test_error_messages_are_cleared_on_click(self):
+        # edith starts a list and causes a validation error
+        self.browser.get(self.live_server_url)
+        self.get_item_input_box().send_keys('Migglesworth')
+        self.get_item_input_box().send_keys(Keys.ENTER)
+        self.wait_for_row_in_list_table('1: Migglesworth')
+        self.get_item_input_box().send_keys('Migglesworth')
+        self.get_item_input_box().send_keys(Keys.ENTER)
+
+        self.wait_for(lambda: self.assertTrue(
+            self.get_error_element().is_displayed()
+        ))
+
+        # she starts typing in the inputbox to clear the error
+        self.get_item_input_box().click()
 
         # she is pleased to see that the error message disappears
         self.wait_for(lambda: self.assertFalse(

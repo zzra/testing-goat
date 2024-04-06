@@ -4,7 +4,7 @@
 <head>
   <title>To-Do lists</title>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, intial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="/static/bootstrap/css/bootstrap.min.css">
   <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
 </head>
@@ -19,7 +19,7 @@
           {{ form.text }}
           {% csrf_token %}
           {% if form.errors %}
-            <div class="invalid-feedback">{{ form.errors.text }}</div>
+            <div class="invalid-feedback" style="display:block">{{ form.errors.text }}</div>
           {% endif %}
         </form>
       </div>

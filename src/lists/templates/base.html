@@ -19,7 +19,7 @@
           {{ form.text }}
           {% csrf_token %}
           {% if form.errors %}
-            <div class="invalid-feedback" style="display:block">{{ form.errors.text }}</div>
+            <div class="invalid-feedback d-block">{{ form.errors.text }}</div>
           {% endif %}
         </form>
       </div>

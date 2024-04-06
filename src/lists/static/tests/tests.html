@@ -16,14 +16,20 @@
 	</div>
 
   <script src="../jquery-3.1.1.min.js"></script>
+	<script src="../lists.js"></script>
   <script src="qunit-2.0.1.js"></script>
 
   <script>
 
-QUnit.test("smoke test", function (assert) {
-  assert.equal($('.errorlist').is(':visible'), true, 'errorlist is found');
-	$('.errorlist').hide();
+QUnit.test("errors should be hidden on key press", function (assert) {
+  initialize()
+	$('input[name="text"]').trigger('keypress');
   assert.equal($('.errorlist').is(':visible'), false, 'errorlist is hidden');
+});
+
+QUnit.test("errors aren't hidden if there is no keypress", function (assert) {
+  initialize()
+  assert.equal($('.errorlist').is(':visible'), true, 'error list is not hidden if no keypress');
 });
 
   </script>

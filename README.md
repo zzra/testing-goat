@@ -24,7 +24,7 @@ docker build -t superlists . && docker run -p 8888:8888 \
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-16, building a js unit test for our functionality 
+17, deploying new code
 
 ## TO DO
 * ~~don't save blank items for every request~~

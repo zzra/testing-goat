@@ -3,7 +3,12 @@ from django.utils.html import escape
 
 from unittest import skip
 
-from lists.forms import ItemForm, EMPTY_ITEM_ERROR
+from lists.forms import (
+	ItemForm, 
+    ExistingListItemForm,
+    EMPTY_ITEM_ERROR,
+    DUPLICATE_ITEM_ERROR,
+)
 from lists.models import Item, List
 
 
@@ -22,10 +27,10 @@ class ListViewTest(TestCase):
         response = self.client.get(f"/lists/{mylist.id}/")
         self.assertTemplateUsed(response, "list.html")
 
-    def test_display_item_form(self):
+    def test_displays_item_form(self):
         mylist = List.objects.create()
         response = self.client.get(f"/lists/{mylist.id}/")
-        self.assertIsInstance(response.context["form"], ItemForm)
+        self.assertIsInstance(response.context["form"], ExistingListItemForm)
         self.assertContains(response, 'name="text"')
 
     def test_displays_only_items_for_that_list(self):
@@ -87,19 +92,18 @@ class ListViewTest(TestCase):
 
     def test_for_invalid_input_passes_form_to_template(self):
         response = self.post_invalid_input()
-        self.assertIsInstance(response.context["form"], ItemForm)
+        self.assertIsInstance(response.context["form"], ExistingListItemForm)
 
     def test_for_invalid_input_shows_error_on_page(self):
         response = self.post_invalid_input()
         self.assertContains(response, escape(EMPTY_ITEM_ERROR))
 
-    @skip
     def test_duplicate_item_validation_errors_end_up_on_lists_page(self):
         mylist = List.objects.create()
         item = Item.objects.create(list=mylist, text="textey")
         response = self.client.post(f"/lists/{mylist.id}/", data={"text":"textey"})
 
-        self.assertContains(response, "You've already got this in your list")
+        self.assertContains(response, escape(DUPLICATE_ITEM_ERROR))
         self.assertTemplateUsed(response, "list.html")
         self.assertEqual(Item.objects.all().count(), 1)
     

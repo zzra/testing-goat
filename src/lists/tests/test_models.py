@@ -28,13 +28,13 @@ class ListAndItemModelTest(TestCase):
             item = Item(list=mylist, text="duplicate")
             item.full_clean()
     
-    def test_CAN_save_saame_item_to_different_lists(self):
+    def test_CAN_save_same_item_to_different_lists(self):
         other_list = List.objects.create()
         correct_list = List.objects.create()
 
         Item.objects.create(list=correct_list, text="dup")
         item = Item(list=other_list, text="dup")
-        item.full_clean()
+        item.full_clean() # should not raise
 
     def test_list_ordering(self):
         mylist = List.objects.create()

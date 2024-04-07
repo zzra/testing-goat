@@ -1,6 +1,6 @@
 ---
 - name: Cleanup Images on Server
-  hosts: all
+  hosts: ppetersaunderss.uk
   tasks:
     - name: Start cleanup of docker images by getting names
       community.docker.docker_host_info:

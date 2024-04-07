@@ -44,6 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'lists',
+    'accounts',
+]
+
+AUTH_USER_MODEL = 'accounts.ListUser'
+AUTHENTICATION_BACKENDS = [
+    'accounts.authentication.PasswordlessAuthenticationBackend'
 ]
 
 MIDDLEWARE = [
@@ -141,3 +147,10 @@ LOGGING = {
         "root": {"handlers" : ["console"], "level": "INFO"},
     }
 }
+
+# uses my personal email for now
+EMAIL_HOST = "smptp.gmail.com"
+EMAIL_HOST_USER = "ppetersaunderss@gmail.com"
+EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True

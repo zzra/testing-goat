@@ -25,7 +25,8 @@ docker build -t superlists . && docker run -p 8888:8888 \
 Git Location - `https://github.com/hjwp/book-example`
 
 ## POSITION
-More advanced topics in testing
+18, another secret, another env variable
+also, setup gmail for app-specific password stuff to allow sending emails
 
 ## TO DO
 * ~~don't save blank items for every request~~
@@ -45,3 +46,9 @@ More advanced topics in testing
 * ~~remove hardcoded urls from views.py~~
 * ~~remove hardcoded url from forms in list.html and home.html~~
 * ~~remove dupliation of validation logic in views~~
+
+### SPIKE GOALS
+* ~~how to send emails~~
+* generating and recognising unique tokens
+* how to authenticate someone in Django
+* user steps for authentication

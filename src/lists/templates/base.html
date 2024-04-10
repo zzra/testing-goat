@@ -17,8 +17,8 @@
         <p>Logged in as {{ user.email }}</p>
         <p><a id="id_logout" href="{% url 'logout' %}">Logout</a></p>
       {% else %}
-        <form metho="POST" action="{% url 'send_login_email %'}">
-          Enter email to log in: <input name="email" type="text"/>
+        <form method="POST" action="{% url 'send_login_email' %}" id="id_login">
+          Enter email to log in: <input name="email" type="text" id="email"/>
           {% csrf_token %}
         </form>
       {% endif %}

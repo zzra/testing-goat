@@ -8,6 +8,7 @@ from django.core.mail import send_mail
 from accounts.models import Token
 
 def send_login_email(request):
+	print(request.POST)
 	email = request.POST["email"]
 	uid = str(uuid.uuid4())
 	Token.objects.create(email=email, uid=uid)

@@ -1,8 +1,9 @@
 import sys
 from accounts.models import ListUser, Token
+from django.contrib.auth.backends import BaseBackend
 
-class PasswordlessAuthenticationBackend(object):
-	def authenticate(self, uid):
+class PasswordlessAuthenticationBackend(BaseBackend):
+	def authenticate(self, request, uid):
 		print('uid', uid, file=sys.stderr)
 		if not Token.objects.filter(uid=uid).exists():
 			print('no token found', file=sys.stderr)

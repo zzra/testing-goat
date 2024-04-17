@@ -17,7 +17,7 @@ def send_login_email(request):
 	send_mail(
 		'Your login link for Superlists',
 		f"Use this link to log in:\n\n{url}",
-		"noreply@superlists",
+		"peter@ppetersaunderss.uk",
 		[email],
 	)
 

@@ -149,8 +149,8 @@ LOGGING = {
 }
 
 # uses my personal email for now
-EMAIL_HOST = "smtp.gmail.com"
-EMAIL_HOST_USER = "ppetersaunderss.dev@gmail.com"
+EMAIL_HOST = "smtp.sendgrid.net"
+EMAIL_HOST_USER = "apikey"
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_PASSWORD")
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
